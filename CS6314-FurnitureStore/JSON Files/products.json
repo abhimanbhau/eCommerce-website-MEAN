@@ -1,0 +1,191 @@
+[{
+  "_id": {
+    "$oid": "5eb4fb257b21ee56c483a9b4"
+  },
+  "reviews": [],
+  "crated": {
+    "$date": "2020-05-08T06:24:37.449Z"
+  },
+  "owner": {
+    "$oid": "5eb23488597873d8d0f65ad7"
+  },
+  "category": {
+    "$oid": "5eae0460a0b6c82c10b7dbe9"
+  },
+  "title": "Bed_Twin",
+  "price": 1500,
+  "quantity": 0,
+  "description": "Twin Bed",
+  "image": "https://wpl-final-project.s3.amazonaws.com/1588919076950",
+  "__v": 0,
+  "isDeleted": false
+},{
+  "_id": {
+    "$oid": "5eb4fb507b21ee56c483a9b5"
+  },
+  "reviews": [],
+  "crated": {
+    "$date": "2020-05-08T06:25:20.313Z"
+  },
+  "owner": {
+    "$oid": "5eb23488597873d8d0f65ad7"
+  },
+  "category": {
+    "$oid": "5eae0460a0b6c82c10b7dbe9"
+  },
+  "title": "Bed new",
+  "price": 100,
+  "quantity": 0,
+  "description": "Bed",
+  "image": "https://wpl-final-project.s3.amazonaws.com/1588919119906",
+  "__v": 0,
+  "isDeleted": false
+},{
+  "_id": {
+    "$oid": "5eb4fb847b21ee56c483a9b6"
+  },
+  "reviews": [],
+  "crated": {
+    "$date": "2020-05-08T06:26:12.814Z"
+  },
+  "owner": {
+    "$oid": "5eb23488597873d8d0f65ad7"
+  },
+  "category": {
+    "$oid": "5eae0460a0b6c82c10b7dbe9"
+  },
+  "title": "Single Bed",
+  "price": 578,
+  "quantity": 0,
+  "description": "Multi bed",
+  "image": "https://wpl-final-project.s3.amazonaws.com/1588919172523",
+  "__v": 0,
+  "isDeleted": false
+},{
+  "_id": {
+    "$oid": "5eb4fba87b21ee56c483a9b7"
+  },
+  "reviews": [],
+  "crated": {
+    "$date": "2020-05-08T06:26:48.052Z"
+  },
+  "owner": {
+    "$oid": "5eb23488597873d8d0f65ad7"
+  },
+  "category": {
+    "$oid": "5eae0460a0b6c82c10b7dbe9"
+  },
+  "title": "Wooden Bed",
+  "price": 1000,
+  "quantity": 3,
+  "description": "Bed",
+  "image": "https://wpl-final-project.s3.amazonaws.com/1588919207536",
+  "__v": 0,
+  "isDeleted": false
+},{
+  "_id": {
+    "$oid": "5eb5962147acee117f9c78fd"
+  },
+  "reviews": [],
+  "crated": {
+    "$date": "2020-05-08T17:25:53.479Z"
+  },
+  "owner": {
+    "$oid": "5eb23488597873d8d0f65ad7"
+  },
+  "category": {
+    "$oid": "5eae0460a0b6c82c10b7dbea"
+  },
+  "title": "Wooden Vintage Industrial Rustic Bookshelf",
+  "price": 70,
+  "quantity": 14,
+  "description": "Take Home Design to New Heights: Artfully crafted of wood grain and metal, this elegantly rustic industrial bookcase takes your home office design to new heights.\nSturdy Construction: High level material of MDF, wood grain PVC and Square Steel Tube Frame ensure years of use. Not solid wood.\nMore Storage Space: Open shelves design with clean line structure provide plenty of space and allow you to have your displays visible from all directions. Dimensions: 70.0” H x 47.2” W x 12.7” D Inch.\nSimple To Assemble: With smart design and all tools included, you never get stuck with the hard assembly jobs for the bookcase.\nWorry-Free Service: We believe in our rustic wood and metal bookcase and that's why we back them all with 30-day free return and 3-year quality assurance.  ",
+  "image": "https://wpl-final-project.s3.amazonaws.com/1588972839541",
+  "__v": 0,
+  "isDeleted": false
+},{
+  "_id": {
+    "$oid": "5eb5967747acee117f9c78fe"
+  },
+  "reviews": [
+    {
+      "$oid": "5eb5dcd15c70912b990e69f7"
+    }
+  ],
+  "crated": {
+    "$date": "2020-05-08T17:27:19.301Z"
+  },
+  "owner": {
+    "$oid": "5eb23488597873d8d0f65ad7"
+  },
+  "category": {
+    "$oid": "5eae0460a0b6c82c10b7dbec"
+  },
+  "title": "Urban Shop Faux Fur Saucer Chair",
+  "price": 39,
+  "quantity": 4,
+  "description": "100% micro mink fabrication with durable metal frame\nOpens and folds in seconds for easy storage - No assembly required\nWeight Capacity is 225 lbs and fits most young adults and adults\nDimensions: 29'' H x 32'' W x 22'' D",
+  "image": "https://wpl-final-project.s3.amazonaws.com/1588958838892",
+  "__v": 1,
+  "isDeleted": false
+},{
+  "_id": {
+    "$oid": "5eb596f247acee117f9c78ff"
+  },
+  "reviews": [],
+  "crated": {
+    "$date": "2020-05-08T17:29:22.879Z"
+  },
+  "owner": {
+    "$oid": "5eb23488597873d8d0f65ad7"
+  },
+  "category": {
+    "$oid": "5eae0460a0b6c82c10b7dbec"
+  },
+  "title": "Office Chair",
+  "price": 61,
+  "quantity": 10,
+  "description": "BUILT FOR COMFORT - Our mesh office/computer chair is built for long-lasting comfort. And easily adjusted for height, the locking mechanism keeps the back upright and relieves the stress and pain brought on by other office chairs.\nERGONOMIC DESIGN - Designed with human-oriented ergonomic construction, users have full mobility whether you’re gaming, working on the computer, or meeting in the office.\nBIFIMA QUALITY-CERTIFIED - Our chairs pass all components of the BIFIMA certification, and are a reliable and sturdy option for users weighing up to 250 pounds.\nEASY ASSEMBLY – Our chair comes ready to assemble, with all the hardware and necessary tools. With step-by-step instructions, you’ll be set up and ready to game, take on the office in about 10-15 minutes!\nCUSTOMER GUARANTEE – We want all of our customers to feel ready to take on the day from the comfort of our chairs. This chair comes with 90-days warranty, and a 100% satisfaction guarantee, but if you’re not satisfied, please contact BestOffice customer service.",
+  "image": "https://wpl-final-project.s3.amazonaws.com/1588958961895",
+  "__v": 0,
+  "isDeleted": false
+},{
+  "_id": {
+    "$oid": "5eb5979047acee117f9c7900"
+  },
+  "reviews": [],
+  "crated": {
+    "$date": "2020-05-08T17:32:00.752Z"
+  },
+  "owner": {
+    "$oid": "5eb23488597873d8d0f65ad7"
+  },
+  "category": {
+    "$oid": "5eae0460a0b6c82c10b7dbee"
+  },
+  "title": "Better Homes Gardens Autumn Lane Farmhouse Dining Table",
+  "price": 97.89,
+  "quantity": 6,
+  "description": "The Better Homes and Gardens Autumn Lane Farmhouse Table seats up to 6 people\nTraditional style table | Beautiful stained oak and painted black finishes\nAutumn Lane Black Farmhouse Table features durable solid hardwood with classic turned legs\nCoordinates with our Autumn Lane Farmhouse Bench and Windsor Chairs\nMeasures: 58.5\"W x 35\"D x 29.45\"H (149cm x 90cm x 74.8cm) | Model# BH40-084-902-50",
+  "image": "https://wpl-final-project.s3.amazonaws.com/1588959120199",
+  "__v": 0,
+  "isDeleted": false
+},{
+  "_id": {
+    "$oid": "5eb5dbdf5c70912b990e69f6"
+  },
+  "reviews": [],
+  "owner": {
+    "$oid": "5eb23488597873d8d0f65ad7"
+  },
+  "category": {
+    "$oid": "5eb5dbb35c70912b990e69f5"
+  },
+  "title": "Desk Lamp",
+  "price": 15,
+  "quantity": 12,
+  "description": "Beautiful deskside Lamp.\nWonderful Read!",
+  "image": "https://wpl-final-project.s3.amazonaws.com/1588976657181",
+  "isDeleted": true,
+  "__v": 0
+}]

@@ -1,0 +1,29 @@
+[{
+  "_id": {
+    "$oid": "5eb23620597873d8d0f65ada"
+  },
+  "rating": 5,
+  "created": {
+    "$date": "2020-05-06T03:59:28.601Z"
+  },
+  "owner": {
+    "$oid": "5eb235af597873d8d0f65ad9"
+  },
+  "title": "Slept like a baby!",
+  "description": "Kinda expensive but worth every penny.Amazing deal.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5eb5dcd15c70912b990e69f7"
+  },
+  "rating": 5,
+  "created": {
+    "$date": "2020-05-08T22:27:29.731Z"
+  },
+  "owner": {
+    "$oid": "5eb5cbb1a100a129a71be67b"
+  },
+  "title": "Good Deal!",
+  "description": "Awesome purchase. Definitely recommend.",
+  "__v": 0
+}]

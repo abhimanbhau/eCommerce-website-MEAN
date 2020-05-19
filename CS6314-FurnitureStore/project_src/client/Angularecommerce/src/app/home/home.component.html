@@ -1,0 +1,63 @@
+<section id="home">
+  <div
+    id="myCarousel"
+    class="carousel slide"
+    data-ride="carousel"
+    data-interval="1000"
+  >
+    <ngb-carousel>
+      <ng-template ngbSlide>
+        <img src="assets/img/c1.png" alt="first" class="item" />
+      </ng-template>
+      <ng-template ngbSlide>
+        <img src="assets/img/c2.png" alt="second" class="item" />
+      </ng-template>
+      <ng-template ngbSlide>
+        <img src="assets/img/c3.png" alt="third" class="item" />
+      </ng-template>
+      <ng-template ngbSlide>
+        <img src="assets/img/c4.png" alt="fourth" class="item" />
+      </ng-template>
+      <ng-template ngbSlide>
+        <img src="assets/img/c5.png" alt="fifth" class="item" />
+      </ng-template>
+      <ng-template ngbSlide>
+        <img src="assets/img/c6.png" alt="sixth" class="item" />
+      </ng-template>
+    </ngb-carousel>
+  </div>
+  <div class="container p-5">
+    <app-message></app-message>
+    <p class="lead">
+      <b>Recommended Deals: Last-Minute Deals</b>
+    </p>
+    <div class="row">
+      <div *ngIf="!products" class="m-auto">
+        <h1 class="text-center display-3 mt-5">
+          <i class="fa fa-spinner fa-spin"></i>
+        </h1>
+      </div>
+      <div
+        *ngFor="
+          let product of products | slice: (page - 1) * 4:(page - 1) * 4 + 4
+        "
+        class="col-md-3 mb-5"
+      >
+        <a routerLink="/product/{{ product._id }}">
+          <div class="card" style="background-color: #8f8164;">
+            <img src="{{ product.image }}" alt="product" class="card-img-top" />
+            <div class="card-body">
+              <h5 class="card-title">{{ product.title }}</h5>
+              <p class="card-text">{{ product.price | currency }}</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <ngb-pagination
+      [collectionSize]="lengthProducts"
+      [pageSize]="6"
+      [(page)]="page"
+    ></ngb-pagination>
+  </div>
+</section>
