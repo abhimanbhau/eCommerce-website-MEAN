@@ -8,11 +8,18 @@ const crypto = require("crypto");
 
 //Creating UserSchema
 const UserSchema = new Schema({
-  email: { type: String, unique: true, lowercase: true },
+  email: {
+    type: String,
+    unique: true,
+    lowercase: true
+  },
   name: String,
   password: String,
   picture: String,
-  isSeller: { type: Boolean, default: false },
+  isSeller: {
+    type: Boolean,
+    default: false
+  },
   address: {
     addr1: String,
     addr2: String,
@@ -21,7 +28,10 @@ const UserSchema = new Schema({
     country: String,
     postalCode: String,
   },
-  created: { type: Date, default: Date.now },
+  created: {
+    type: Date,
+    default: Date.now
+  },
 });
 
 //Function to handleEvent of password modification

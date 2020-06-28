@@ -1,3 +1,7 @@
+// ENTER AWS API KEY and SECRET KEY HERE
+const AWS_ACCESS_KEY = "";
+const AWS_SECRET_KEY = "";
+
 // Seller.JS file to maintain every sellers details and storing the resources on AWS
 
 //Including the required packages and assigning it to Local Variables
@@ -9,9 +13,8 @@ const aws = require("aws-sdk");
 const multer = require("multer");
 const multerS3 = require("multer-s3");
 const s3 = new aws.S3({
-  // ENTER AWS KEY AND SECRET HERE
-  accessKeyId: "",
-  secretAccessKey: "",
+  accessKeyId: AWS_ACCESS_KEY,
+  secretAccessKey: AWS_SECRET_KEY,
 });
 
 const faker = require("faker");
@@ -24,7 +27,9 @@ var upload = multer({
     s3: s3,
     bucket: "wpl-final-project",
     metadata: function (req, file, cb) {
-      cb(null, { fieldName: file.fieldname });
+      cb(null, {
+        fieldName: file.fieldname
+      });
     },
     key: function (req, file, cb) {
       cb(null, Date.now().toString());
@@ -33,41 +38,25 @@ var upload = multer({
 });
 
 router.route("/products/:id").post((req, res) => {
-  // Product.remove({ _id: req.params.id }, function (err, result) {
-  //   if (err) {
-  //     console.log(err);
-  //     res.send(err);
-  //   } else {
-  //     console.log(result);
-  //     res.send(result);
-  //   }
-  // });
-
-  Product.findByIdAndUpdate(
-    { _id: req.params.id },
-    { isDeleted: true },
+  Product.findByIdAndUpdate({
+      _id: req.params.id
+    }, {
+      isDeleted: true
+    },
     (err, result) => {
       if (err) throw err;
       res.send(result);
     }
   );
-
-  // Product.updateOne({_id: req.params.id},
-
-  //    isDeleted: true
-  //  ,
-  //  function(err, result){
-  //    if(err)
-  //     throw err;
-  //     else
-  //     res.send(result);
-  //  });
 });
+
 //Function to handle the product's GET and POST requests by seller
 router
   .route("/products")
   .get(checkJWT, (req, res, next) => {
-    Product.find({ owner: req.decoded.user._id })
+    Product.find({
+        owner: req.decoded.user._id
+      })
       .populate("owner")
       .populate("category")
       .exec((err, products) => {
@@ -102,9 +91,9 @@ router
 router
   .route("/editproducts")
   .post([checkJWT, upload.single("product_picture")], (req, res, next) => {
-    Product.findByIdAndUpdate(
-      { _id: req.body.id },
-      {
+    Product.findByIdAndUpdate({
+        _id: req.body.id
+      }, {
         owner: req.decoded.user._id,
         category: req.body.categoryId,
         title: req.body.title,

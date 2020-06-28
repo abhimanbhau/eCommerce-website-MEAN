@@ -7,24 +7,37 @@ const deepPopulate = require("mongoose-deep-populate")(mongoose);
 const mongooseAlgolia = require("mongoose-algolia");
 
 //Creating a new Product Schema
-const ProductSchema = new Schema(
-  {
-    category: { type: Schema.Types.ObjectId, ref: "Category" },
-    owner: { type: Schema.Types.ObjectId, ref: "User" },
-    reviews: [{ type: Schema.Types.ObjectId, ref: "Review" }],
-    image: String,
-    title: String,
-    description: String,
-    price: Number,
-    quantity: Number,
-    isDeleted: Boolean,
-    created: { type: Date, default: Date.now },
+const ProductSchema = new Schema({
+  category: {
+    type: Schema.Types.ObjectId,
+    ref: "Category"
   },
-  {
-    toObject: { virtuals: true },
-    toJSON: { virtuals: true },
-  }
-);
+  owner: {
+    type: Schema.Types.ObjectId,
+    ref: "User"
+  },
+  reviews: [{
+    type: Schema.Types.ObjectId,
+    ref: "Review"
+  }],
+  image: String,
+  title: String,
+  description: String,
+  price: Number,
+  quantity: Number,
+  isDeleted: Boolean,
+  created: {
+    type: Date,
+    default: Date.now
+  },
+}, {
+  toObject: {
+    virtuals: true
+  },
+  toJSON: {
+    virtuals: true
+  },
+});
 
 ProductSchema.virtual("averageRating").get(function () {
   var rating = 0;
@@ -45,8 +58,7 @@ ProductSchema.plugin(mongooseAlgolia, {
   appId: "KW06GS4929",
   apiKey: "ca7080fd8e24ae3f2ad56e68af784fc5",
   indexName: "Ecommercever1",
-  selector:
-    "_id title image reviews description price owner created averageRating",
+  selector: "_id title image reviews description price owner created averageRating",
   populate: {
     path: "owner reviews",
     select: "name rating",

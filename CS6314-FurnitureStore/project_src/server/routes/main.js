@@ -25,7 +25,9 @@ router.get("/products", (req, res, next) => {
         });
       },
       function (callback) {
-        Product.find({ isDeleted: false })
+        Product.find({
+            isDeleted: false
+          })
           .skip(perPage * page)
           .limit(perPage)
           .populate("category")
@@ -81,13 +83,17 @@ router.get("/categories/:id", (req, res, next) => {
   async.parallel(
     [
       function (callback) {
-        Product.count({ category: req.params.id }, (err, count) => {
+        Product.count({
+          category: req.params.id
+        }, (err, count) => {
           var totalProducts = count;
           callback(err, totalProducts);
         });
       },
       function (callback) {
-        Product.find({ category: req.params.id })
+        Product.find({
+            category: req.params.id
+          })
           .skip(perPage * page)
           .limit(perPage)
           .populate("category")
@@ -99,7 +105,9 @@ router.get("/categories/:id", (req, res, next) => {
           });
       },
       function (callback) {
-        Category.findOne({ _id: req.params.id }, (err, category) => {
+        Category.findOne({
+          _id: req.params.id
+        }, (err, category) => {
           callback(err, category);
         });
       },
@@ -121,9 +129,11 @@ router.get("/categories/:id", (req, res, next) => {
 });
 
 router.post("/product/:id/qty", (req, res) => {
-  Product.findByIdAndUpdate(
-    { _id: req.params.id },
-    { quantity: req.body.qty },
+  Product.findByIdAndUpdate({
+      _id: req.params.id
+    }, {
+      quantity: req.body.qty
+    },
     function (err, result) {
       if (err) {
         res.send(err);
@@ -136,7 +146,9 @@ router.post("/product/:id/qty", (req, res) => {
 
 //Function to facilitate get request of specific product
 router.get("/product/:id", (req, res, next) => {
-  Product.findById({ _id: req.params.id })
+  Product.findById({
+      _id: req.params.id
+    })
     .populate("category")
     .populate("owner")
     .deepPopulate("reviews.owner")
@@ -161,7 +173,9 @@ router.get("/product/:id", (req, res, next) => {
 router.post("/review", checkJWT, (req, res, next) => {
   async.waterfall([
     function (callback) {
-      Product.findOne({ _id: req.body.productId }, (err, product) => {
+      Product.findOne({
+        _id: req.body.productId
+      }, (err, product) => {
         if (product) {
           callback(err, product);
         }
@@ -188,8 +202,6 @@ router.post("/review", checkJWT, (req, res, next) => {
 
 //Function to facilitate payment functionality  using STRIPE API
 router.post("/payment", checkJWT, (req, res, next) => {
-  //console.log(req.body);
-
   const currentCharges = Math.round(req.body.total);
 
   const products = req.body.products;
@@ -214,38 +226,6 @@ router.post("/payment", checkJWT, (req, res, next) => {
     success: true,
     message: "Successfully made a payment",
   });
-
-  // stripe.customers
-  //   .create({
-  //     source: stripeToken.id
-  //   })
-  //   .then(function(customer) {
-  //     return stripe.charges.create({
-  //       amount: currentCharges,
-  //       currency: 'usd',
-  //       customer: customer.id
-  //     });
-  //   })
-  //   .then(function(charge) {
-  //     const products = req.body.products;
-
-  //     let order = new Order();
-  //     order.owner = req.decoded.user._id;
-  //     order.totalPrice = currentCharges;
-
-  //     products.map(product => {
-  //       order.products.push({
-  //         product: product.product,
-  //         quantity: product.quantity
-  //       });
-  //     });
-
-  //     order.save();
-  //     res.json({
-  //       success: true,
-  //       message: "Successfully made a payment"
-  //     });
-  //   });
 });
 
 //Exporting the module

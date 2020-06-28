@@ -17,28 +17,28 @@ router.post("/signup", (req, res, next) => {
   user.picture = user.gravatar();
   user.isSeller = req.body.isSeller;
 
-  User.findOne({ email: req.body.email }, (err, existingUser) => {
+  User.findOne({
+    email: req.body.email
+  }, (err, existingUser) => {
     if (existingUser) {
       res.json({
         success: false,
-        message: "Account with that email is already exist",
+        message: "Account with that email is already exists",
       });
     } else {
       user.save();
 
-      var token = jwt.sign(
-        {
+      var token = jwt.sign({
           user: user,
         },
-        config.secret,
-        {
+        config.secret, {
           expiresIn: "7d",
         }
       );
 
       res.json({
         success: true,
-        message: "Enjoy your token",
+        message: "Token Success",
         token: token,
       });
     }
@@ -47,28 +47,28 @@ router.post("/signup", (req, res, next) => {
 
 //Function to facilitate login feature
 router.post("/login", (req, res, next) => {
-  User.findOne({ email: req.body.email }, (err, user) => {
+  User.findOne({
+    email: req.body.email
+  }, (err, user) => {
     if (err) throw err;
 
     if (!user) {
       res.json({
         success: false,
-        message: "Authenticated failed, User not found",
+        message: "User account cannot be found",
       });
     } else if (user) {
       var validPassword = user.comparePassword(req.body.password);
       if (!validPassword) {
         res.json({
           success: false,
-          message: "Authentication failed. Wrong password",
+          message: "Incorrect password",
         });
       } else {
-        var token = jwt.sign(
-          {
+        var token = jwt.sign({
             user: user,
           },
-          config.secret,
-          {
+          config.secret, {
             expiresIn: "7d",
           }
         );
@@ -87,7 +87,9 @@ router.post("/login", (req, res, next) => {
 router
   .route("/profile")
   .get(checkJWT, (req, res, next) => {
-    User.findOne({ _id: req.decoded.user._id }, (err, user) => {
+    User.findOne({
+      _id: req.decoded.user._id
+    }, (err, user) => {
       res.json({
         success: true,
         user: user,
@@ -96,7 +98,9 @@ router
     });
   })
   .post(checkJWT, (req, res, next) => {
-    User.findOne({ _id: req.decoded.user._id }, (err, user) => {
+    User.findOne({
+      _id: req.decoded.user._id
+    }, (err, user) => {
       if (err) return next(err);
 
       if (req.body.name) user.name = req.body.name;
@@ -108,7 +112,7 @@ router
       user.save();
       res.json({
         success: true,
-        message: "Successfully edited your profile",
+        message: "Profile successfully edited",
       });
     });
   });
@@ -116,7 +120,9 @@ router
 router
   .route("/address")
   .get(checkJWT, (req, res, next) => {
-    User.findOne({ _id: req.decoded.user._id }, (err, user) => {
+    User.findOne({
+      _id: req.decoded.user._id
+    }, (err, user) => {
       res.json({
         success: true,
         address: user.address,
@@ -125,7 +131,9 @@ router
     });
   })
   .post(checkJWT, (req, res, next) => {
-    User.findOne({ _id: req.decoded.user._id }, (err, user) => {
+    User.findOne({
+      _id: req.decoded.user._id
+    }, (err, user) => {
       if (err) return next(err);
 
       if (req.body.addr1) user.address.addr1 = req.body.addr1;
@@ -138,7 +146,7 @@ router
       user.save();
       res.json({
         success: true,
-        message: "Successfully edited your address",
+        message: "Address successfully edited",
       });
     });
   });
@@ -147,19 +155,21 @@ router.post("/orders", (req, res) => {});
 
 //Function to handle Orders functionality for authenticated users
 router.get("/orders", checkJWT, (req, res, next) => {
-  Order.find({ owner: req.decoded.user._id })
+  Order.find({
+      owner: req.decoded.user._id
+    })
     .populate("products.product")
     .populate("owner")
     .exec((err, orders) => {
       if (err) {
         res.json({
           success: false,
-          message: "Couldn't find your order",
+          message: "Order cannot be found",
         });
       } else {
         res.json({
           success: true,
-          message: "Found your order",
+          message: "Order found",
           orders: orders,
         });
       }
@@ -167,7 +177,9 @@ router.get("/orders", checkJWT, (req, res, next) => {
 });
 
 router.get("/orders/:id/delete", (req, res) => {
-  Order.remove({ _id: req.params.id }, function (err, result) {
+  Order.remove({
+    _id: req.params.id
+  }, function (err, result) {
     if (err) {
       console.log(err);
       res.send(err);
@@ -180,19 +192,21 @@ router.get("/orders/:id/delete", (req, res) => {
 
 //Function to handle specific order functionality
 router.get("/orders/:id", checkJWT, (req, res, next) => {
-  Order.findOne({ _id: req.params.id })
+  Order.findOne({
+      _id: req.params.id
+    })
     .deepPopulate("products.product.owner")
     .populate("owner")
     .exec((err, order) => {
       if (err) {
         res.json({
           success: false,
-          message: "Couldn't find your order",
+          message: "Order cannot be found",
         });
       } else {
         res.json({
           success: true,
-          message: "Found your order",
+          message: "Order found",
           order: order,
         });
       }

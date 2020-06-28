@@ -28,7 +28,10 @@ router.get("/", (req, res, next) => {
         });
       },
       function (callback) {
-        Product.find({ isDeleted: false, title: regex })
+        Product.find({
+            isDeleted: false,
+            title: regex
+          })
           .skip(perPage * page)
           .limit(perPage)
           .populate("category")

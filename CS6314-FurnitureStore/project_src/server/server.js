@@ -15,13 +15,15 @@ mongoose.connect(config.database, (err) => {
   if (err) {
     console.log(err);
   } else {
-    console.log("Connected to the database");
+    console.log("Mongoose Init: Success");
   }
 });
 
 //express application using required packages
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 app.use(morgan("dev"));
 app.use(cors());
 
@@ -38,5 +40,5 @@ app.use("/api/search", productSearchRoutes);
 
 //Setting up the port for server to run on
 app.listen(config.port, (err) => {
-  console.log("Server connected at port: " + config.port);
+  console.log("Server Init: <port> " + config.port);
 });

@@ -19,7 +19,7 @@
   "image": "https://wpl-final-project.s3.amazonaws.com/1588919076950",
   "__v": 0,
   "isDeleted": false
-},{
+}, {
   "_id": {
     "$oid": "5eb4fb507b21ee56c483a9b5"
   },
@@ -40,7 +40,7 @@
   "image": "https://wpl-final-project.s3.amazonaws.com/1588919119906",
   "__v": 0,
   "isDeleted": false
-},{
+}, {
   "_id": {
     "$oid": "5eb4fb847b21ee56c483a9b6"
   },
@@ -61,7 +61,7 @@
   "image": "https://wpl-final-project.s3.amazonaws.com/1588919172523",
   "__v": 0,
   "isDeleted": false
-},{
+}, {
   "_id": {
     "$oid": "5eb4fba87b21ee56c483a9b7"
   },
@@ -82,7 +82,7 @@
   "image": "https://wpl-final-project.s3.amazonaws.com/1588919207536",
   "__v": 0,
   "isDeleted": false
-},{
+}, {
   "_id": {
     "$oid": "5eb5962147acee117f9c78fd"
   },
@@ -103,15 +103,13 @@
   "image": "https://wpl-final-project.s3.amazonaws.com/1588972839541",
   "__v": 0,
   "isDeleted": false
-},{
+}, {
   "_id": {
     "$oid": "5eb5967747acee117f9c78fe"
   },
-  "reviews": [
-    {
-      "$oid": "5eb5dcd15c70912b990e69f7"
-    }
-  ],
+  "reviews": [{
+    "$oid": "5eb5dcd15c70912b990e69f7"
+  }],
   "crated": {
     "$date": "2020-05-08T17:27:19.301Z"
   },
@@ -128,7 +126,7 @@
   "image": "https://wpl-final-project.s3.amazonaws.com/1588958838892",
   "__v": 1,
   "isDeleted": false
-},{
+}, {
   "_id": {
     "$oid": "5eb596f247acee117f9c78ff"
   },
@@ -149,7 +147,7 @@
   "image": "https://wpl-final-project.s3.amazonaws.com/1588958961895",
   "__v": 0,
   "isDeleted": false
-},{
+}, {
   "_id": {
     "$oid": "5eb5979047acee117f9c7900"
   },
@@ -170,7 +168,7 @@
   "image": "https://wpl-final-project.s3.amazonaws.com/1588959120199",
   "__v": 0,
   "isDeleted": false
-},{
+}, {
   "_id": {
     "$oid": "5eb5dbdf5c70912b990e69f6"
   },
